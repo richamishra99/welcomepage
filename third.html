@@ -1,0 +1,129 @@
+<!-- DOCTOR -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+
+        /* .first {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(doctor.jpg);
+            background-size: cover;
+            background-position: center;
+        } */
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0%;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover:after {
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-24%);
+            /* text-align: center; */
+            color: black
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">
+        <div class="navbar">
+            <img src="logo.jpg" class="logo">
+            <ul>
+                <b>
+                    <li class="nav__item"><a href="fourth.html" class="nav__link">Patient</a></li>
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Doctor</a></li> -->
+                    <li class="nav__item"><a href="#" class="nav__link">Upload</a></li>
+                    <li class="nav__item"><a href="Dashboard.html" class="nav__link">Dashboard</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Logout</a></li>
+                </b>
+            </ul>
+        </div>
+
+        <div class="content">
+            <form style="text-align: center;">
+                <div style="text-align: left;">
+                    <b><label style="font-size: 20px;padding-left: 250px;">Doctor name:</label></b>
+                    <input type="text" name="title" id="title" value=""><br>
+                </div>
+
+
+                <div style="padding: 55px;">
+                    <h2 class="prescription"><label>Prescription</label><br>
+                        <textarea name="body" rows="12" cols="120"></textarea>
+                    </h2>
+
+                    <b><label>Symptoms</label></b><br>
+                    <textarea name="body" cols="120" style="text-align: center;"></textarea><br>
+
+
+                    <b><label>Medicines</label></b><br>
+                    <textarea name="body" cols="120" style="text-align: right;"></textarea><br>
+
+                </div>
+
+
+
+                <input type="hidden" name="userId" value="1" size="50px">
+                <button onclick="alert('Are You Sure')"
+                    style="width: 126px;height: 42px; font-size: 24px; text-align: center;">Submit</button>
+
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>
