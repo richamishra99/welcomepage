@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+
+        /* .first {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(doctor.jpg);
+            background-size: cover;
+            background-position: center;
+        } */
+
+        .navbar {
+            width: 85%;
+            margin: auto;
+            padding: 35px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+        }
+
+        .logo {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .navbar ul li::after {
+            content: '';
+            height: 3px;
+            width: 0%;
+            background: #009688;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+
+        .navbar ul li:hover:after {
+            width: 100%;
+        }
+
+        .search {
+            width: 10%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 3.5em;
+            place-items: center;
+            margin-left: 1000px;
+        }
+        .search__container {
+            border-bottom: 1px solid #9BAAB7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .search__box {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #9BAAB7;
+            background-color: #fff;
+            border: none;
+            padding: 0 0 0.5em 1em;
+        }
+
+        .search__box:focus {
+            outline: none;
+        }
+
+        .search__icon {
+            font-size: 1.2rem;
+            padding: 0.4em;
+        }
+        .upload--btn {
+            font-weight: 300;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.8em 6em;
+            border-radius: 1.5em;
+            color: white;
+            background-color: #200a5a;
+            -webkit-box-shadow: 0px 7px 16px -6px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 7px 16px -6px rgba(0, 0, 0, 0.75);
+        }
+
+        /* Image Gallery*/
+        .img__container {
+            display: -ms-grid;
+            display: grid;
+            -ms-grid-columns: (250px);
+            grid-template-columns: repeat(4, 225px);
+            grid-auto-rows: 200px;
+            grid-gap: 13px;
+            margin: 70px;
+            padding-left: 122px;
+        }
+
+        .img__item {
+            position: relative;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .img__item img {
+            height: 75%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        .img__item:hover .img__description {
+            -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+            -webkit-transition: all ease-in-out 250ms;
+            transition: all ease-in-out 250ms;
+        }
+
+        .img__description {
+            position: absolute;
+            padding: 0.7em;
+            z-index: 100;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            -webkit-transform: translateY(150%);
+            transform: translateY(150%);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .img__title {
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .img__subtxt {
+            font-size: 0.7rem;
+            font-weight: 300;
+        }
+
+        .fa-bookmark {
+            display: -ms-grid;
+            display: grid;
+            place-items: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="first">
+        <div class="navbar">
+            <img src="logo.jpg" class="logo">
+            <ul>
+                <b>
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Patient</a></li> -->
+                    <li class="nav__item"><a href="third.html " class="nav__link">Doctor</a></li>
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Upload</a></li> -->
+                    <li class="nav__item"><a href="dashbord1.html" class="nav__link">Dashboard</a></li>
+                    <li class="nav__item"><a href="Loginpage.html" class="nav__link">Logout</a></li>
+                </b>
+
+            </ul>
+        </div>
+        <div class="search">
+            <input type="file" id="myfile" name="myfile" accept="image/*" class="upload" />
+            <label for="myfile" class="upload--btn">Upload</label>
+        </div>
+        <div class="box">
+            <section class="img__container">
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1503875489810-33dee4b91809?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                        alt="img" class="img__img">
+                </figure>
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1535205092463-e39ccb94e175?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                        alt="img" class="img__img">
+
+                </figure> <!-- End img 2 -->
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                        alt="img" class="img__img">
+
+                </figure> <!-- End img 3 -->
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1533208087231-c3618eab623c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1363&q=80"
+                        alt="img" class="img__img">
+
+                </figure> <!-- End img 4 -->
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1457377491689-0381aa8d90d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="img" class="img__img">
+
+                </figure> <!-- End img 5 -->
+                <figure class="img__item">
+                    <img src="https://images.unsplash.com/photo-1428190318100-06790c8b2e5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+                        alt="img" class="img__img">
+
+                </figure> <!-- End img 6 -->
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

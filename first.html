@@ -1,45 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trendyclothes</title>
-    <style>
-        .start{
-            background-color: #f1e6d9;
-            text-align: center;
-           
-           
+<html>
+  <head>
+    <title>Instascan</title>
+    <script type="text/javascript" src="welcomepage\instascan.min.js"></script>
+  </head>
+  <body>
+    <video id="preview"></video>
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
         }
-        h1{
-            text-align: center;
-            color: #411d69;
-        }
-        
-        h2{
-            color: #c10298;
-        }
-       
-    </style>
-</head>
-
-<body>
-    <div class="start">
-        <h1>Welcome</h1>
-        <h2>Find Trendy Clothes Here!!</h2>
-    </div>
-    <h2>Amazing Clothes.</h2>
-    <div>
-        <ol>
-            <li>men</li>
-            <li>women</li>
-            <li>kids</li>
-
-        </ol>
-    </div>
-   
-</body>
-
+      }).catch(function (e) {
+        console.error(e);
+      });
+      
+    </script>
+  </body>
 </html>

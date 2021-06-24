@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background-color: white;
+            display: -ms-grid;
+            display: grid;
+            /* place-items: center; */
+            /* font-family: "Muli", sans-serif; */
+            font-size: 20px;
+            color: #334043;
+            border-radius: 0em;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn3_j2IclicYE7jOqUR4p8dhlMEDFnc3TYGQ&usqp=CAU);
+            background-repeat: no-repeat;
+            /* height: 0px;
+            width: 0px; */
+            /* background-color: #cccccc; */
+            /* padding: 1em 6em 6em 6em; */
+            /* max-width: 1200px;
+            -webkit-box-shadow: 14px 10px 41px -6px #7fa3b2;
+            box-shadow: 14px 10px 41px -6px #7fa3b2; */
+        }
+
+        .nav {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            /* margin-top: 1.5em; */
+            margin-bottom: 50px;
+            border-bottom: 2px solid black;
+            background-color: #10847e;
+        }
+
+        .nav__ul {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            list-style: none;
+        }
+
+        .nav__item {
+            list-style: none;
+            margin-left: 1em;
+        }
+
+        .nav__link {
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav__link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #334043;
+            margin: 0 auto;
+            -webkit-transition: width .1s;
+            transition: width .1s;
+        }
+
+        .nav__link:hover::after {
+            width: 40%;
+        }
+
+        .title {
+            text-align: right;
+        }
+
+        .prescription {
+            align-items: right;
+        }
+
+        .submit {
+            text-align: center;
+        }
+
+        form {
+            display: c;
+        }
+
+    </style>
+
+    <script>
+        var serializeForm = function (form) {
+            var obj = {};
+            var formData = new FormData(form);
+            for (var key of formData.keys()) {
+                obj[key] = formData.get(key);
+            }
+            return obj;
+        };
+
+        document.addEventListener("submit", function (formSubmittedEvent) {
+            event.preventDefault();
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                body: JSON.stringify(serializeForm(formSubmittedEvent.target)),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log(
+                            "Create new post on jsonplaceholder was successful. Here’s what was posted."
+                        );
+                        return response.json();
+                    }
+                    return Promise.reject(response);
+                })
+                .then(function (data) {
+                    console.log(data);
+                })
+                .catch(function (error) {
+                    console.warn(error);
+                });
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="body">
+        <section class="container">
+            <nav class="nav">
+                <ul class="nav__ul">
+                    <b>
+                        <li class="nav__item"><a href="#" class="nav__link">Patient</a></li>
+                    </b>
+                    <b>
+                        <li class="nav__item"><a href="#" class="nav__link">Doctor</a></li>
+                    </b>
+                    <b>
+                        <li class="nav__item"><a href="#" class="nav__link">Upload</a></li>
+                    </b>
+                    <b>
+                        <li class="nav__item"><a href="#" class="nav__link">Dashboard</a></li>
+                    </b>
+                </ul>
+            </nav>
+            <form>
+                <h2 class="title"> <label>Disease:</label>
+                    <input type="text" name="title" id="title" value="">
+                </h2>
+                <br>
+                <p class="prescription"><label>Prescription</label><br>
+                    <textarea name="body" rows="12" cols="150"></textarea>
+                </p>
+                <br>
+                <p class="submit">
+                    <input type="hidden" name="userId" value="1" size="10px">
+                    <button onclick="alert('Are You Sure')">Submit</button>
+                </p>
+            </form>
+        </section>
+    </div>
+</body>
+
+</html>
